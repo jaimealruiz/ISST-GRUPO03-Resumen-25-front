@@ -1,0 +1,16 @@
+# Node.js dependencies
+frontend/node_modules
+frontend/build
+
+# Java dependencies
+backend/target
+backend/.gradle
+backend/.mvn
+
+# IDE config files
+*.idea
+*.vscode
+
+#
+venv/
+.env
