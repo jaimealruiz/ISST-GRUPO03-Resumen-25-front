@@ -2,15 +2,34 @@
 frontend/node_modules
 frontend/build
 
-# Java dependencies
-backend/target
-backend/.gradle
-backend/.mvn
+# Archivos de Maven
+target/
+*.jar
+*.war
+*.ear
 
-# IDE config files
-*.idea
-*.vscode
+# Configuración de Maven
+.mvn/
+mvnw
+mvnw.cmd
 
-#
+# Archivos del IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+
+# Archivos de sistema (Mac y Linux)
+.DS_Store
+Thumbs.db
+
+# Logs y archivos de depuración
+logs/
+*.log
+hs_err_pid*
+
+# Variables de entorno y configuración sensible
 venv/
 .env
