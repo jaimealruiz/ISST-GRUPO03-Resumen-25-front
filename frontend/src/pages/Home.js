@@ -1,64 +1,58 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-white px-6 py-8">
+    <div className="home-container">
       {/* Navbar */}
-      <nav className="w-full container mx-auto flex justify-between items-center py-4">
-        <h1 className="text-4xl font-bold">Resumen.es</h1>
-        <div className="flex gap-4">
-          <button className="bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg">
+      <nav className="navbar">
+        <h1 className="logo">Resumen.es</h1>
+        <div className="button-group">
+          <button className="button" onClick={() => navigate("/login")}>
             Login
           </button>
-          <button className="bg-gradient-to-r from-blue-400 to-purple-400 text-white px-4 py-2 rounded-lg">
+          <button className="button" onClick={() => navigate("/signup")}>
             Sign up
           </button>
         </div>
       </nav>
 
       {/* Contenido principal */}
-      <div className="mt-10 flex flex-col items-center">
+      <div className="main-content">
         {/* Libros */}
-        <div className="flex gap-4">
-          <img
-            src="/images/habitos-atomicos.jpg"
-            className="w-32 rounded-lg"
-            alt="Hábitos Atómicos"
-          />
-          <img
-            src="/images/moved-my-cheese.jpg"
-            className="w-32 rounded-lg"
-            alt="Who Moved My Cheese?"
-          />
-          <img
-            src="/images/nunca-te-pares.jpg"
-            className="w-32 rounded-lg"
-            alt="Nunca te Pares"
-          />
+        <div className="books-container">
+          {["habitos-atomicos", "moved-my-cheese", "nunca-te-pare"].map(
+            (img) => (
+              <img
+                key={img}
+                src={process.env.PUBLIC_URL + `/images/${img}.jpg`}
+                className="book-image"
+                alt={`Libro ${img}`}
+              />
+            )
+          )}
         </div>
 
         {/* Descripción */}
-        <div className="text-center mt-6 max-w-lg">
-          <p className="text-lg font-semibold">
-            ¿No tienes tiempo para leer libros enteros?
-          </p>
-          <p className="mt-2 text-gray-700">
-            Aprovecha cada minuto con resúmenes claros, directos y prácticos.
-          </p>
-          <ul className="mt-4 text-gray-600 list-disc list-inside text-left">
-            <li>Lo mejor de los libros en minutos.</li>
-            <li>Aprende sin perder tiempo.</li>
-            <li>Decide si un libro vale la pena antes de comprarlo.</li>
+        <div className="description">
+          <h2>¿No tienes tiempo para leer libros enteros?</h2>
+          <p>Aprovecha cada minuto con resúmenes claros, directos y prácticos</p>
+          <ul className="feature-list">
+            <li>Lo mejor de los libros en minutos</li>
+            <li>Aprende sin perder tiempo</li>
+            <li>Decide si un libro vale la pena antes de comprarlo</li>
           </ul>
         </div>
       </div>
 
       {/* Botón de catálogo */}
-      <div className="mt-10 text-center">
-        <button className="bg-gradient-to-r from-blue-400 to-purple-400 text-white px-6 py-2 rounded-lg flex items-center">
-          🔍 Catálogo
-        </button>
-      </div>
+      <button className="catalog-button" onClick={() => navigate("/catalog")}>
+        <span>🔍</span>
+        Catálogo
+      </button>
     </div>
   );
 };
