@@ -1,54 +1,55 @@
-import React from 'react'
-import React, { useNavigate, useState } from 'react';
-//import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
-export default function Login() {
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    console.log("Logging in with:", username, password);
-    // Aquí iría la lógica de autenticación
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Lógica de autenticación aquí
+    console.log('Email:', email, 'Password:', password);
+    // Redirección temporal
+    navigate('/');
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-2xl shadow-lg w-96">
-        <h2 className="text-2xl font-bold text-center text-gray-700 mb-4">Iniciar sesión</h2>
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="w-full p-2 mb-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 mb-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <button
-          onClick={handleLogin}
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg"
-        >
-          Iniciar sesión
-        </button>
-        <p className="text-center text-gray-600 mt-4">
-          ¿No tienes cuenta?
-          <button onClick={() => navigate("/signup")} className="text-blue-500 ml-1">
-            Regístrate
-          </button>
-        </p>
-        <button
-          onClick={() => navigate("/")}
-          className="w-full bg-gray-300 hover:bg-gray-400 text-black p-2 rounded-lg mt-4"
-        >
-          Volver al inicio
-        </button>
-      </div>
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h1>Iniciar sesión</h1>
+        
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="login-button">Sign In</button>
+        
+        <div className="forgot-password">
+          <a href="/forgot-password">Forgot password?</a>
+        </div>
+      </form>
     </div>
   );
-}
+};
+
+export default Login;
