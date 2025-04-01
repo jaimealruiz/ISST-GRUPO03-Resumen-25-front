@@ -2,9 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
+import HabitosAtomicos from '../assets/images/habitosatomicos.jpg';
+import MovedCheese from '../assets/images/cheese.jpg';
+import nuncatepares from '../assets/images/nuncatepares.jpg';
+
 const Home = () => {
   const navigate = useNavigate();
 
+  
+  const books = [
+    { img: HabitosAtomicos, alt: "Hábitos Atómicos" },
+    { img: MovedCheese, alt: "Who Moved My Cheese?" },
+    { img: nuncatepares, alt: "Nunca te Pares" }
+  ];
 
   return (
     <div className="home-container">
@@ -24,18 +34,21 @@ const Home = () => {
       {/* Contenido principal */}
       <div className="main-content">
         {/* Libros */}
+
         <div className="books-container">
-          {["habitosatomicos", "cheese", "nuncatepares"].map(
-            (img) => (
-              <img
-                key={img}
-                src={`assets/images/${img}.jpg`}
-                className="book-image"
-                alt={`Libro ${img}`}
-              />
-            )
-          )}
-        </div>
+        {books.map((book, index) => (
+          <img
+            key={index}
+            src={book.img}
+            className="book-image"
+            alt={book.alt}
+          />
+        ))}
+      </div>
+
+
+      
+     
 
         
 
