@@ -1,72 +1,34 @@
-/* // Catalogo.js
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import './Catalogo.css';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from './AuthContext';
+import API from './api';
 
-function Catalogo() {
+const Catalogo = () => {
+  const { auth } = useContext(AuthContext);
   const [resumenes, setResumenes] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Simulado
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchResumenes = async () => {
-      try {
-        const res = await axios.get('/api/resumenes');
-        setResumenes(res.data);
-      } catch (err) {
-        console.error('Error al cargar el catálogo:', err);
-      }
-    };
-    fetchResumenes();
-  }, []);
-
-  const handleResumenClick = (resumen) => {
-    if (resumen.isFree || isAuthenticated) {
-      navigate(`/resumen/${resumen.idResumen}`);
-    } else {
-      navigate('/sign-in');
-    }
-  };
+    API.get('/resumenes')
+      .then(response => {
+        // Suponiendo que response.data sea el array de resumenes
+        if (!auth.isAuthenticated) {
+          setResumenes(response.data.slice(0, 3));
+        } else {
+          setResumenes(response.data);
+        }
+      })
+      .catch(error => console.error(error));
+  }, [auth.isAuthenticated]);
 
   return (
-    <div className="catalogo-container">
-      <div className="top-bar">
-        <button onClick={() => navigate(-1)} className="volver">←</button>
-        <div>
-          {!isAuthenticated ? (
-            <>
-              <button onClick={() => navigate('/login')} className="btn">Login</button>
-              <button onClick={() => navigate('/sign-in')} className="btn">Sign up</button>
-            </>
-          ) : (
-            <button onClick={() => navigate('/menu')} className="btn">☰</button>
-          )}
+    <div>
+      {resumenes.map(item => (
+        <div key={item.id}>
+          <img src={item.portadaUrl} alt={item.titulo} />
+          <h3>{item.titulo}</h3>
         </div>
-      </div>
-      <h1 className="catalogo-title">🔍 Catálogo</h1>
-      <div className="catalogo-grid">
-        {resumenes.map((resumen) => (
-          <div
-            key={resumen.idResumen}
-            className="resumen-card"
-            onClick={() => handleResumenClick(resumen)}
-          >
-            <img
-              src={`/portadas/${resumen.idResumen}.jpg`}
-              alt={resumen.titulo}
-              className="resumen-img"
-            />
-            {!resumen.isFree && (
-              <span className="lock-icon">🔒</span>
-            )}
-          </div>
-        ))}
-      </div>
+      ))}
     </div>
   );
-}
+};
 
 export default Catalogo;
-
- */

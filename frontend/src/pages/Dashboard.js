@@ -1,13 +1,17 @@
-import { useAuth } from '../context/AuthContext';
+// Dashboard.js
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 
 const Dashboard = () => {
-  const { user, logout } = useAuth();
+  const { auth, logout } = useContext(AuthContext);
 
   return (
     <div>
-      <h1>Bienvenido {user.nombre}</h1>
-      <p>Rol: {user.rol}</p>
+      <h1>Bienvenido, {auth.user ? auth.user.nombre : 'Usuario'}</h1>
       <button onClick={logout}>Cerrar sesión</button>
+      {/* Aquí puedes incluir más componentes o secciones propias del dashboard */}
     </div>
   );
 };
+
+export default Dashboard;

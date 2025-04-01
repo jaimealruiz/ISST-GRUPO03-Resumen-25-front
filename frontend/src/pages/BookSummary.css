@@ -1,0 +1,92 @@
+.summary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .book-header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+  
+  .book-cover-large {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .book-meta {
+    flex: 1;
+  }
+  
+  .book-meta h1 {
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .book-meta h2 {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+  }
+  
+  .rating {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: 600;
+  }
+  
+  .summary-content {
+    line-height: 1.6;
+    color: #4a5568;
+  }
+  
+  .key-points {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+  }
+  
+  .key-points ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .key-points li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .key-points li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+  }
+  
+  .read-button {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 2rem auto;
+  }
+  
+  .read-button:hover {
+    transform: translateY(-2px);
+  }
