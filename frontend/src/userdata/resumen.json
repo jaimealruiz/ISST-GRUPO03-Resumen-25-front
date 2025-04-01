@@ -1,0 +1,13 @@
+{
+    "id": 1,
+    "titulo": "Resumen de Álgebra Lineal",
+    "autor": {
+        "id": 23,
+        "email": "juan.perez@example.com",
+        "rol": "ESTUDIANTE",
+        "activo": true
+    },
+    "archivoUrl": "https://ejemplo.com/resumenes/algebra-lineal.pdf",
+    "validado": true,
+    "ejemplo": false
+}

@@ -1,0 +1,30 @@
+{
+    "resumenes": [
+        {
+            "id": 1,
+            "titulo": "Resumen de Álgebra Lineal",
+            "autor": {
+                "id": 23,
+                "email": "juan.perez@example.com",
+                "rol": "ESTUDIANTE",
+                "activo": true
+            },
+            "archivoUrl": "https://ejemplo.com/resumenes/algebra-lineal.pdf",
+            "validado": true,
+            "ejemplo": false
+        },
+        {
+            "id": 2,
+            "titulo": "Resumen de Física Cuántica",
+            "autor": {
+                "id": 45,
+                "email": "maria.gomez@example.com",
+                "rol": "PROFESOR",
+                "activo": true
+            },
+            "archivoUrl": "https://ejemplo.com/resumenes/fisica-cuantica.pdf",
+            "validado": false,
+            "ejemplo": true
+        }
+    ]
+}

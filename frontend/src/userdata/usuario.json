@@ -1,0 +1,7 @@
+
+{
+    "email": "nuevo.usuario@example.com",
+    "password": "contraseñaSegura123",
+    "rol": "ESTUDIANTE",
+    "activo": true
+}

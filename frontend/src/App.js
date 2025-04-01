@@ -3,6 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login"
 import SignUp from './pages/SignUp';
+import Catalogo from "./pages/Catalogo";
+import Dashboard from './pages/Dashboard';
+import PrivateRoute from './pages/PrivateRoute';
+
 
 function App() {
   return (
@@ -13,6 +17,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/catalogo" element={<Catalogo />} />
+          <Route path="/dashboard" element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }/>
         </Routes>
       </div>
     </Router>
