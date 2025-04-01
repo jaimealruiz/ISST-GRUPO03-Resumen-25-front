@@ -5,6 +5,7 @@ import "./Home.css";
 const Home = () => {
   const navigate = useNavigate();
 
+
   return (
     <div className="home-container">
       {/* Navbar */}
@@ -24,17 +25,19 @@ const Home = () => {
       <div className="main-content">
         {/* Libros */}
         <div className="books-container">
-          {["habitos-atomicos", "moved-my-cheese", "nunca-te-pare"].map(
+          {["habitosatomicos", "cheese", "nuncatepares"].map(
             (img) => (
               <img
                 key={img}
-                src={process.env.PUBLIC_URL + `/images/${img}.jpg`}
+                src={`assets/images/${img}.jpg`}
                 className="book-image"
                 alt={`Libro ${img}`}
               />
             )
           )}
         </div>
+
+        
 
         {/* Descripción */}
         <div className="description">
