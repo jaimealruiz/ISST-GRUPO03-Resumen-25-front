@@ -35,9 +35,15 @@ const SignUp = () => {
 
   return (
     <div className="signup-container">
+      <button
+        className="back-button"
+        onClick={() => navigate('/')} // O navigate(-1) para volver a la página anterior
+      >
+        ← Volver
+      </button>
       <form className="signup-form" onSubmit={handleSubmit}>
         <h1>Registro de usuario</h1>
-        
+
         <div className="form-group">
           <label>Nombre</label>
           <input

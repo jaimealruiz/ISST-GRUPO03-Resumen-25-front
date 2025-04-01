@@ -85,6 +85,13 @@
 }
 
 /* Botón catálogo */
+.catalog-button-container {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
 .catalog-button {
   background: linear-gradient(45deg, #2563eb, #7c3aed);
   color: white;
@@ -100,6 +107,7 @@
 }
 
 .catalog-button:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
   
