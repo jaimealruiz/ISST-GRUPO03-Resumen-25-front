@@ -17,6 +17,14 @@ const Login = () => {
 
   return (
     <div className="login-container">
+
+<button 
+        className="back-button"
+        onClick={() => navigate('/')}
+      >
+        ← Volver
+      </button>
+      
       <form className="login-form" onSubmit={handleSubmit}>
         <h1>Iniciar sesión</h1>
         
@@ -47,6 +55,18 @@ const Login = () => {
         <div className="forgot-password">
           <a href="/forgot-password">Forgot password?</a>
         </div>
+
+        <div className="signup-redirect">
+          <p>¿Aún no tienes cuenta? 
+            <span 
+              className="signup-link"
+              onClick={() => navigate('/signup')}
+            >
+              Regístrate aquí
+            </span>
+          </p>
+        </div>
+        
       </form>
     </div>
   );

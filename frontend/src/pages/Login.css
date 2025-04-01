@@ -82,3 +82,23 @@
   text-decoration: underline;
 }
 
+.signup-redirect {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #4a5568;
+}
+
+.signup-link {
+  color: #667eea;
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
