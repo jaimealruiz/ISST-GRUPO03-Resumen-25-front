@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+//import { useNavigate} from 'react-router-dom';
+import { useAuth } from './context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import api from '../helpers/axios_helper';
+import api from './helpers/axios_helper';
 import './Login.css';
 //import users from '../userdata/usuario.json'; // Importar el JSON
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useContext(AuthContext);
+  const { login } = useContext(useAuth);
   const navigate = useNavigate();
-  const history = useHistory();
+  //const history = useHistory();
 
 
   const handleChange = e => {
@@ -24,7 +24,7 @@ const Login = () => {
       .then(response => {
         // Suponiendo que la respuesta incluye token y datos de usuario
         login(response.data.token, response.data.user);
-        history.push('/dashboard');
+        navigate('/dashboard');
       })
       .catch(error => {
         console.error(error);

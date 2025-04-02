@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useAuth} from '../context/AuthContext';
+import { useAuth} from './context/AuthContext';
 import API from '../helpers/axios_helper';
 
 const Catalogo = () => {
@@ -23,6 +23,12 @@ const displayedResumenes = user
 
 return (
   <div className="catalog-container">
+    <button
+        className="back-button"
+        onClick={() => navigate('/')}
+      >
+        ← Volver
+      </button>
     <h1>Catálogo</h1>
     <div className="books-grid">
       {displayedResumenes.map((resumen) => (

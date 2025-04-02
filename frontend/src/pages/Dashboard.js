@@ -1,9 +1,9 @@
 // Dashboard.js
 import React, { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+import { useAuth} from './context/AuthContext';
 
 const Dashboard = () => {
-  const { auth, logout } = useContext(AuthContext);
+  const { auth, logout } = useContext(useAuth);
 
   return (
     <div>
