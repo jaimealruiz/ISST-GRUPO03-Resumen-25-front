@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 //import { useNavigate} from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -7,9 +7,9 @@ import './Login.css';
 //import users from '../userdata/usuario.json'; // Importar el JSON
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { login } = useContext(useAuth);
+  const [formData, setFormData] = useState({ email: '', password: '' });
+
+  const { login } = useAuth();
   const navigate = useNavigate();
   //const history = useHistory();
 
@@ -32,19 +32,19 @@ const Login = () => {
       });
   };
 
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-});
+  
 
   return (
     <div className="login-container">
+      <h1> Login </h1>
       <button
         className="back-button"
         onClick={() => navigate('/')}
       >
         ← Volver
       </button>
+    
+
       <div className="form-group">
     <form onSubmit={handleSubmit}>
       <input 
