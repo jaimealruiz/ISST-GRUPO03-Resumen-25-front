@@ -3,12 +3,12 @@ import { useAuth} from '../context/AuthContext';
 import API from '../helpers/axios_helper';
 import { useNavigate } from 'react-router-dom';
 
-const navigate = useNavigate();
+
 
 const Catalogo = () => {
   const { user } = useAuth();
     const [resumenes, setResumenes] = useState([]);
-
+    const navigate = useNavigate();
   useEffect(() => {
     API.get('/userdata/lista-resumen.json')
     .then((response) => {
