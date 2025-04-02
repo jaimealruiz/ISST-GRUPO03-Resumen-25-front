@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 //import { useNavigate} from 'react-router-dom';
-import { useAuth } from './context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import api from './helpers/axios_helper';
+import {request} from '../helpers/axios_helper';
 import './Login.css';
 //import users from '../userdata/usuario.json'; // Importar el JSON
 
@@ -20,7 +20,7 @@ const Login = () => {
 
     const handleSubmit = e => {
     e.preventDefault();
-    API.post('/login', formData)
+    request('POST', '/login', formData)
       .then(response => {
         // Suponiendo que la respuesta incluye token y datos de usuario
         login(response.data.token, response.data.user);
@@ -31,6 +31,11 @@ const Login = () => {
         // Muestra un error al usuario
       });
   };
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+});
 
   return (
     <div className="login-container">
