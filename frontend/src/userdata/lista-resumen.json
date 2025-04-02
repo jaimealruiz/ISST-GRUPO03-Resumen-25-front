@@ -2,7 +2,7 @@
     "resumenes": [
         {
             "id": 1,
-            "titulo": "Resumen de Álgebra Lineal",
+            "titulo":  "Who Moved My Cheese?",
             "autor": {
                 "id": 23,
                 "email": "juan.perez@example.com",
@@ -15,7 +15,20 @@
         },
         {
             "id": 2,
-            "titulo": "Resumen de Física Cuántica",
+            "titulo": "Nunca te pares",
+            "autor": {
+                "id": 45,
+                "email": "maria.gomez@example.com",
+                "rol": "PROFESOR",
+                "activo": true
+            },
+            "archivoUrl": "https://ejemplo.com/resumenes/fisica-cuantica.pdf",
+            "validado": false,
+            "ejemplo": true
+        },
+        {
+            "id": 3,
+            "titulo": "Hábitos Atómicos",
             "autor": {
                 "id": 45,
                 "email": "maria.gomez@example.com",
