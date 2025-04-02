@@ -1,0 +1,37 @@
+/* ResumenList.css */
+
+/* Contenedor principal para la lista */
+.resumen-list-container {
+    /* Activamos CSS Grid */
+    display: grid;
+    /* Por defecto, 1 columna (pantallas muy pequeñas) */
+    grid-template-columns: 1fr;
+    /* Espacio horizontal/vertical entre items */
+    gap: 1.5rem;
+    /* Añade algo de margen/padding si gustas */
+    padding: 1rem;
+  }
+  
+  /* A partir de 640px (~ tamaño 'sm' en Tailwind) */
+  @media (min-width: 640px) {
+    .resumen-list-container {
+      /* 2 columnas en pantallas >= 640px */
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* A partir de 768px (~ tamaño 'md') */
+  @media (min-width: 768px) {
+    .resumen-list-container {
+      /* 3 columnas en pantallas >= 768px */
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* A partir de 1024px (~ 'lg') (opcional, si quieres 4 columnas) */
+  @media (min-width: 1024px) {
+    .resumen-list-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  

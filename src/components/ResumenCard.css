@@ -1,0 +1,69 @@
+/* ResumenCard.css */
+
+.resumen-card {
+    background-color: #fff;
+    /* Sombra sutil */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    /* Para un layout similar al flex de Tailwind */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Imagen */
+  .resumen-card img {
+    width: 100%;
+    height: 16rem; /* ~ h-64 */
+    object-fit: cover;
+  }
+  
+  /* Contenido interno */
+  .resumen-card-content {
+    padding: 1rem;    /* ~ p-4 */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Título */
+  .resumen-title {
+    font-size: 1.125rem;  /* ~ text-lg */
+    font-weight: 600;     /* ~ font-semibold */
+    color: #2D3748;       /* ~ text-gray-800 */
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Descripción */
+  .resumen-description {
+    font-size: 0.875rem; /* ~ text-sm */
+    color: #4A5568;      /* ~ text-gray-600 */
+  }
+  
+  /* Botón/Link */
+  .resumen-link {
+    margin-top: 1rem;           /* ~ mt-4 */
+    text-align: center;
+    background-color: #3182CE;  /* ~ bg-blue-600 */
+    color: #fff;
+    padding: 0.5rem 1rem;       /* ~ px-4 py-2 */
+    border-radius: 4px;         /* ~ rounded */
+    display: block;             /* ~ block */
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Hover */
+  .resumen-link:hover {
+    background-color: #2B6CB0; /* ~ hover:bg-blue-700 */
+  }
+  
+  /* Pequeña responsividad */
+  @media (max-width: 640px) {
+    .resumen-card img {
+      height: 12rem; /* Ajusta la altura de la imagen en pantallas pequeñas */
+    }
+  }
+  
