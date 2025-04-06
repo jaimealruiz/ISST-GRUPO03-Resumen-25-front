@@ -1,0 +1,35 @@
+/* Catalogo.css */
+
+/* Contenedor principal: centrado y con ancho máximo */
+.catalogo-container {
+    max-width: 1200px; /* similar a max-w-6xl */
+    margin: 0 auto;
+    padding: 2rem;     /* ~ p-8 */
+  }
+  
+  /* Título principal */
+  .catalogo-title {
+    font-size: 2rem;     /* ~ text-3xl */
+    font-weight: bold;   /* ~ font-bold */
+    margin-bottom: 1rem; /* ~ mb-4 */
+    text-align: center;
+    color: #333;         /* similar a text-gray-800 */
+  }
+  
+  /* Mensaje de "no hay resúmenes" */
+  .no-resumenes-message {
+    text-align: center;
+    color: #666;         /* ~ text-gray-500 */
+    margin-top: 2rem;
+  }
+  
+  /* Ajuste responsivo opcional */
+  @media (max-width: 640px) {
+    .catalogo-container {
+      padding: 1rem; 
+    }
+    .catalogo-title {
+      font-size: 1.5rem;
+    }
+  }
+  

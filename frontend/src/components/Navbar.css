@@ -1,0 +1,78 @@
+/* Navbar.css */
+
+/* Estilos base del contenedor del navbar */
+.navbar {
+    background-color: #f8f8f8;       /* Color de fondo */
+    border-bottom: 1px solid #ddd;   /* Línea sutil en la parte inferior */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;           /* Espaciado interno */
+    font-family: sans-serif;
+  }
+  
+  /* Zona izquierda del navbar (logo o título) */
+  .navbar-left .navbar-logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  /* Zona derecha del navbar (links, botones) */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espacio horizontal entre elementos */
+  }
+  
+  /* Links generales del navbar */
+  .navbar-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  /* Hover en los links */
+  .navbar-link:hover {
+    color: #007BFF;
+  }
+  
+  /* Botón (Logout, etc.) */
+  .navbar-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  /* Hover en el botón */
+  .navbar-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsividad sencilla */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-wrap: wrap;   /* Permite que los elementos pasen a otra línea */
+    }
+  
+    .navbar-left,
+    .navbar-right {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 0.25rem 0;
+    }
+  
+    /* Podrías centrar la zona de la derecha si prefieres */
+    .navbar-right {
+      justify-content: flex-end;
+    }
+  }
+  
