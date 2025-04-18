@@ -70,28 +70,36 @@ public class DocumentController {
         Optional<Document> docOpt = documentService.getDocumentById(id);
         if (docOpt.isEmpty())
             throw new RuntimeException("Documento no encontrado");
-
+    
         Document doc = docOpt.get();
-
         try {
-            String fileName = new java.io.File(doc.getFilePath()).getName();
-            Path filePath = Paths.get("uploads").resolve(fileName).normalize();
-            Resource resource = new UrlResource(filePath.toUri());
-
-            if (!resource.exists()) {
-                throw new RuntimeException("Archivo no encontrado");
+            String filePath = doc.getFilePath();
+    
+            Resource resource;
+    
+            if (filePath.startsWith("http")) {
+                // Si es URL externa
+                resource = new UrlResource(filePath);
+            } else {
+                // Si es archivo local
+                String fileName = new java.io.File(filePath).getName();
+                Path path = Paths.get("uploads").resolve(fileName).normalize();
+                resource = new UrlResource(path.toUri());
             }
-
+    
+            if (!resource.exists())
+                throw new RuntimeException("Archivo no encontrado");
+    
             return ResponseEntity.ok()
                     .contentType(MediaType.APPLICATION_PDF)
-                    //Para que se pueda ver en iframe, pero no funciona muy bien
                     .header("X-Frame-Options", "ALLOWALL")
                     .body(resource);
-
+    
         } catch (Exception e) {
             throw new RuntimeException("Error al servir el archivo PDF", e);
         }
     }
+    
 
     @GetMapping("/{id}")
     public Document getById(@PathVariable Long id) {

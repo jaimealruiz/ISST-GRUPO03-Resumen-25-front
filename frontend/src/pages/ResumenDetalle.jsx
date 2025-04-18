@@ -37,8 +37,13 @@ function ResumenDetalle() {
 
       {/* Visor de PDF con react-pdf */}
       <div className="bg-gray-100 p-4 rounded shadow overflow-auto h-[80vh]">
-        <Document file={pdfUrl} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
-          {Array.from({ length: numPages }, (_, index) => (
+        <Document
+          file={pdfUrl}
+          onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+          loading={<p>Cargando documento...</p>}
+          error={<p className="text-red-500">Error al cargar el documento PDF.</p>}
+        >
+          {Array.from(new Array(numPages), (el, index) => (
             <Page
               key={`page_${index + 1}`}
               pageNumber={index + 1}
